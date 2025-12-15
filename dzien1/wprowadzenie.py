@@ -61,3 +61,94 @@ print(0.1 + 0.2)  # 0.30000000000000004, bład zaokrąglenia
 # For example, in a floating-point arithmetic with five base-ten digits,
 # the sum 12.345 + 1.0001 = 13.3451 might be rounded to 13.345.
 # decimal() - pozwalaja obejśc błąd zaokrąglenia, do obliczen na pieniądzach
+
+# boolean
+# True, False
+print(int(True))  # 1
+
+print(bool(100))  # True
+print(bool("Radek"))  # True
+
+# kolekcje
+# moze przechowuje dowolna ilośc i dowolne typy na raz
+
+# lista - mutowalna, zachowuje kolejność przy dodawaniu
+imiona = ["Jan", "Piotr", "Anna", "Nadia", "Michał"]
+print(imiona)
+# ['Jan', 'Piotr', 'Anna', 'Nadia', 'Michał']
+#     0     1        2         3       4
+#     -5     -4      -3        -2      -1
+print(imiona[1])  # Piotr
+print(imiona[-1])  # Michał, ostatni element
+
+# slicowanie - fragment listy
+print(imiona[2:4])  # ['Anna', 'Nadia'] indeksy 2 i 3
+print(imiona[1:])  # ['Piotr', 'Anna', 'Nadia', 'Michał'], z ostatnim włacznie
+
+print(imiona[10:25])  # []
+print(imiona[-2:0])  # []
+print(imiona[0:-2])  # ['Jan', 'Piotr', 'Anna']
+
+imiona_p = imiona[::2]  # [stop:start:krok], ['Jan', 'Piotr', 'Anna'], co drugą
+
+lista_p = []
+lista_p2 = list()
+
+lista_p.append("Karol")
+print(lista_p)  # ['Karol']
+lista_p.append("Radek")
+lista_p.append("Tomek")
+lista_p.append("Anna")
+print(lista_p)  # ['Karol', 'Radek', 'Tomek', 'Anna']
+
+lista_p.insert(1, 'Jan')
+print(lista_p)  # ['Karol', 'Jan', 'Radek', 'Tomek', 'Anna']
+lista_p.append("Jan")
+print(lista_p)
+# ['Karol', 'Jan', 'Radek', 'Tomek', 'Anna', 'Jan']
+lista_p.remove("Jan")  # pierwszy napotkany
+print(lista_p)  # ['Karol', 'Radek', 'Tomek', 'Anna', 'Jan']
+
+# garbage collector
+
+del imiona[3]
+print(imiona)  # ['Jan', 'Piotr', 'Anna', 'Michał']
+
+del lista_p2
+# print(lista_p2) # NameError: name 'lista_p2' is not defined. Did you mean: 'lista_p'?
+
+# enumerate() - numeruje kolekcje
+imen = enumerate(imiona, 111)
+print(imen)  # <enumerate object at 0x000001DB202FA340>
+# for i in imen:
+#     print(i)
+# # (111, 'Jan')
+# # (112, 'Piotr')
+# # (113, 'Anna')
+# # (114, 'Michał')
+
+for i in imen:
+    print(i[0], i[1])
+# 111 Jan
+# 112 Piotr
+# 113 Anna
+# 114 Michał
+
+for index, wartosc in imen:
+    # f - string format
+    print(f"index -> {index}, wartosc -> {wartosc}")
+# 111 Jan
+# 112 Piotr
+# 113 Anna
+# 114 Michał
+
+index, wartosc = (114, 'Michał')
+print("index -> {}, wartosc -> {}".format(index, wartosc))  # index -> 114, wartosc -> Michał
+print("index:", index, "wartośc:", wartosc)  # index: 114 wartośc: Michał
+#  sep
+#         string inserted between values, default a space.
+#       end
+#         string appended after the last value, default a newline.
+print("index:", index, "wartośc:", wartosc, sep="---")  # index:---114---wartośc:---Michał
+
+print("a: %i b: %s" % (index, wartosc))  # a: 114 b: Michał
