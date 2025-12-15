@@ -1,6 +1,7 @@
 # lambda - skrócony zapis funkcji
 # lambda zwraca wynik
 # funkcja anonimowa - nie ma nazwy, możliwosc uzycia w miejscu deklaracji
+from functools import reduce
 
 
 def liczmy(x, y):
@@ -124,3 +125,13 @@ def funkcja_glob():
 
 funkcja_glob()
 print(a)  # 15
+
+# reduce()
+#  calculates ((((1 + 2) + 3) + 4) + 5).
+liczby = [1, 2, 3, 4, 5]
+wynik = reduce(lambda x, y: x + y, liczby)
+print("Wynik reduce()  x + y:", wynik)  # Wynik reduce()  x + y: 15
+
+liczby = [1, 2, 3, 4, 5]
+wynik = reduce(lambda x, y: x * y, liczby)
+print("Wynik reduce(): x * y =", wynik)  # Wynik reduce(): x * y = 120
