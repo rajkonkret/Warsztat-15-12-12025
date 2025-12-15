@@ -19,4 +19,13 @@ def nwd(a, b):
 
 print(nwd(48, 18))  # 6
 
+nasted_data = {
+    "a": 1,
+    "b": {
+        "c": 2,
+        "d": [3, 4, {"e": 5}]
+    },
+    "f": [6, 7]
+}
 
+# zsumowac wszystkie wartości ze słownika
