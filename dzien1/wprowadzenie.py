@@ -254,3 +254,43 @@ print(dict.fromkeys(lista))
 #  {1: None, 2: None, 3: None, 4: None, 7: None, 6: None, 5: None}
 print(list(dict.fromkeys(lista)))
 # [1, 2, 3, 4, 7, 6, 5] nie tracimy kolejności
+
+# petla
+licznik = 0
+while True:
+    print("Dane")
+    licznik += 1
+    if licznik > 10:
+        break  # przerywa pętlę
+
+licznik = 0
+while licznik < 10:
+    licznik += 1  # licznik = licznik + 1
+    print("Licznik dane 2")
+
+przekaski = ['hotdog', 'pizza', 'hamburger', 'frytki']
+prompt = "Wybierz swoją przekąskę"
+
+# while True:
+#     choice = input(prompt)
+#     if choice in przekaski:
+#         break
+#     print("Nie ma")
+# print("Dalsza część programu")
+#
+# # walrus operator, operator morsa
+# while (choice := input(prompt)) not in przekaski:
+#     if choice == "exit":
+#         break
+#     print("Nie ma")
+
+name = "Radek"
+a = len(name)
+if a > 4:
+    print("Długośc większa od 4, wynosi:", a)
+
+if (a := len(name)) > 4:
+    print("Długośc większa od 4, wynosi:", a)
+# Długośc większa od 4, wynosi: 5
+# Długośc większa od 4, wynosi: 5
+
