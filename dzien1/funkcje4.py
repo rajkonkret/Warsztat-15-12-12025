@@ -1,7 +1,7 @@
 # lambda - skrócony zapis funkcji
 # lambda zwraca wynik
 # funkcja anonimowa - nie ma nazwy, możliwosc uzycia w miejscu deklaracji
-from functools import reduce
+from functools import reduce, lru_cache
 
 
 def liczmy(x, y):
@@ -135,3 +135,21 @@ print("Wynik reduce()  x + y:", wynik)  # Wynik reduce()  x + y: 15
 liczby = [1, 2, 3, 4, 5]
 wynik = reduce(lambda x, y: x * y, liczby)
 print("Wynik reduce(): x * y =", wynik)  # Wynik reduce(): x * y = 120
+
+
+@lru_cache(maxsize=1000)  # dekorator
+def fib_cached(n):
+    if n < 2:
+        return n
+    return fib_cached(n - 1) + fib_cached(n - 2)
+
+
+print(fib_cached(10))  # 55
+print(fib_cached.cache_info())
+# CacheInfo(hits=8, misses=11, maxsize=1000, currsize=11)
+print(fib_cached(15))
+print(fib_cached.cache_info())
+# CacheInfo(hits=14, misses=16, maxsize=1000, currsize=16)
+
+fib_cached.cache_clear()  # czyszczenie cache
+print(fib_cached.cache_info())  # CacheInfo(hits=0, misses=0, maxsize=1000, currsize=0)
