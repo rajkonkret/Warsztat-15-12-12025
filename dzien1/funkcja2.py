@@ -1,5 +1,6 @@
 # funkcja wew, funkcja zagnieżdzona
-
+# dekorator -  ma konstrukcję zbliżoną do funkcji wewnętrznej
+# funkcja wyższego rzędu - funkcja która jako argument przyjmuje inną funkcję
 def fun1():
     print("To jest funkcja1")
 
