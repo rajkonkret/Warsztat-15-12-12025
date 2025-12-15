@@ -28,3 +28,56 @@ new_fun()
 # zrobic fukcje plik
 # funkcja pryzjmuje parametr: zapis, odczyt
 # w zależności od parametru zwróci odpowiednią funkcję
+
+# ========= ===============================================================
+#     Character Meaning
+#     --------- ---------------------------------------------------------------
+#     'r'       open for reading (default)
+#     'w'       open for writing, truncating the file first
+#     'x'       create a new file and open it for writing
+#     'a'       open for writing, appending to the end of the file if it exists
+#     'b'       binary mode
+#     't'       text mode (default)
+#     '+'       open a disk file for updating (reading and writing)
+#     ========= ===============================================================
+fh = open('test.txt', "w")
+fh.write("Zapisano\n")
+fh.close()
+
+
+def plik(arg):
+    def zapis():
+        print("Zapis danych do pliku")
+
+    def odczyt():
+        print("Odczyt danych z pliku...")
+
+    def pusta():
+        print("Pusta operacja")
+
+    match arg.casefold():
+        case "zapis":
+            return zapis  # zwracamy adres funkcji
+        case "odczyt":
+            return odczyt
+        case _:
+            return pusta
+
+
+zapis_pliku = plik("zapis")
+zapis_pliku()
+zapis_pliku()
+zapis_pliku()
+zapis_pliku()
+zapis_pliku()
+zapis_pliku()
+
+odczyt_pliku = plik("odczyt")
+odczyt_pliku()
+odczyt_pliku()
+odczyt_pliku()
+odczyt_pliku()
+odczyt_pliku()
+
+pusta = plik("pusta")
+pusta()  # Pusta operacja
