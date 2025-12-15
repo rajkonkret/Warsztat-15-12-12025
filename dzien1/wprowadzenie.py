@@ -294,3 +294,43 @@ if (a := len(name)) > 4:
 # Długośc większa od 4, wynosi: 5
 # Długośc większa od 4, wynosi: 5
 
+odp = "Radek"
+
+if odp == "radek":
+    print("Radek")
+elif odp == "Tomek":
+    print("Tomek")
+else:  # wartość domyślna, w innym przypadku
+    print("Nie znam Cię")
+    # Nie znam Cię
+
+# od pythona 3.10 -> match case
+
+# odp = input("Podaj imię")
+
+#  strip() - usunięcie białych znaków
+# match odp.casefold().strip().capitalize():
+#     case "Radek":
+#         print("Ok")
+#     case "Tomek":
+#         print("Tez Ok")
+#     case _:  # odpowiednik else
+#         print("Nie znam")
+
+name1 = "GROSS"
+name2 = "groẞ"
+print(name1.lower() == name2.lower())  # False
+print(name1.casefold() == name2.casefold())
+# """ Return a version of the string suitable for caseless comparisons. """
+
+dane = [1, 2, 3]
+dane = {'nazwa': "Radek", "wiek": 45}
+match dane:
+    case [a, b, c]:
+        print(f"Lista z trzema elementami: {a=} {b=} {c=}")
+    case {"nazwa": n, "wiek": w}:
+        print(f"Słownik reprezentujący osobe: {n}, wiek: {w}")
+    case _:
+        print("Błędny typ danych")
+# Lista z trzema elementami: a=1 b=2 c=3
+# Słownik reprezentujący osobe: Radek, wiek: 45
