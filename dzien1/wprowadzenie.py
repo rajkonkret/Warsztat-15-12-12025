@@ -152,3 +152,26 @@ print("index:", index, "wartośc:", wartosc)  # index: 114 wartośc: Michał
 print("index:", index, "wartośc:", wartosc, sep="---")  # index:---114---wartośc:---Michał
 
 print("a: %i b: %s" % (index, wartosc))  # a: 114 b: Michał
+
+nowe_imie = imiona  # kopia referencji
+lista_copy = imiona.copy()
+
+print(nowe_imie)
+print(imiona)
+print(id(imiona))  # 1282569981888
+print(id(nowe_imie))
+print(id(lista_copy))  # 2232957418944
+
+nowe_imie.append("Radek")
+print(nowe_imie)
+print(imiona)
+print(lista_copy)
+# ['Jan', 'Piotr', 'Anna', 'Michał', 'Radek']
+# ['Jan', 'Piotr', 'Anna', 'Michał', 'Radek']
+# ['Jan', 'Piotr', 'Anna', 'Michał']
+
+pimie = imiona[:]  # nowa lista
+qimie = list(imiona)
+print(id(pimie))  # 1942732038848
+print(id(qimie))  # 1942769581248
+print(id(lista_copy))  # 1942769581376
