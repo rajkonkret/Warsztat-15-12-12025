@@ -74,7 +74,29 @@ def greetings5(string):
 print(greetings5("Kolor"))
 
 print(greetings5.__name__)  # wrapper
+
+
 # po dodaniu @wraps
 # greetings5
 # '__module__', '__name__', '__qualname__', '__doc__',
 #                        '__annotate__', '__type_params__'
+
+def dekor_z_arg(slowo):
+    def dekor(func):
+        def wew():
+            print("Dekorator przekazał:", slowo)
+            return func()  # zwracamy wynik funkcji
+
+        return wew
+
+    return dekor
+
+
+@dekor_z_arg("HelO")
+def funkcja_argument():
+    print("Oryginalna funkcja")
+
+
+funkcja_argument()
+# Dekorator przekazał: HelO
+# Oryginalna funkcja
