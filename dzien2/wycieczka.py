@@ -19,32 +19,35 @@ def kwota(transport, nocleg, wyzywienie, wycieczki, ubezpieczenie, inne, rabat=0
     return round(suma, 2)
 
 
-print(kwota(
-    transport=500,
-    nocleg=800,
-    wyzywienie=300,
-    wycieczki=300,
-    ubezpieczenie=100,
-    inne=50
-))
+# print(__name__)
+if __name__ == '__main__':
 
-# rabaty = [0.0, 0.5]
-rabaty = [0, 5, 10, 15, 20]
-for r in rabaty:
-    kw = kwota(
+    print(kwota(
         transport=500,
         nocleg=800,
         wyzywienie=300,
         wycieczki=300,
         ubezpieczenie=100,
-        inne=50,
-        rabat=r
-    )
-    print(f"Rabat: {r:>3}% -> {kw:.2f} zł")
-    # r>3 - wyrównaj do prawej, szerokośc kolumny 3
-    # .2f ---- do drugiego m iejsca po przecinku
-# Rabat:   0% -> 2050.00 zł
-# Rabat:   5% -> 1985.00 zł
-# Rabat:  10% -> 1920.00 zł
-# Rabat:  15% -> 1855.00 zł
-# Rabat:  20% -> 1790.00 zł
+        inne=50
+    ))
+
+    # rabaty = [0.0, 0.5]
+    rabaty = [0, 5, 10, 15, 20]
+    for r in rabaty:
+        kw = kwota(
+            transport=500,
+            nocleg=800,
+            wyzywienie=300,
+            wycieczki=300,
+            ubezpieczenie=100,
+            inne=50,
+            rabat=r
+        )
+        print(f"Rabat: {r:>3}% -> {kw:.2f} zł")
+        # r>3 - wyrównaj do prawej, szerokośc kolumny 3
+        # .2f ---- do drugiego m iejsca po przecinku
+    # Rabat:   0% -> 2050.00 zł
+    # Rabat:   5% -> 1985.00 zł
+    # Rabat:  10% -> 1920.00 zł
+    # Rabat:  15% -> 1855.00 zł
+    # Rabat:  20% -> 1790.00 zł
