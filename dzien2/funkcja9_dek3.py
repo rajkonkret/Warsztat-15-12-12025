@@ -1,5 +1,6 @@
 import numpy as np
 import tracemalloc
+import time
 
 # The core of NumPy is well-optimized C code.
 # Enjoy the flexibility of Python with the speed of compiled code.
@@ -59,9 +60,22 @@ print(array1.dtype)  # wypisanie typu danych dla numpy
 lista1 = list(range(10_000_000))
 lista2 = list(range(10_000_000))
 
+
 # current, peak = tracemalloc.get_traced_memory()
 # tracemalloc.stop()
 # print(f"Current memory usage: {current / 1024 ** 2} MB")
 # print(f"Peak memory usage: {peak / 1024 ** 2} MB")
 # Current memory usage: 762.9212341308594 MB
 # Peak memory usage: 762.9212341308594
+
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        # start_time = time.time()
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        execution_time = end_time - start_time
+        print(f"Czas wykonania funkcji: {func.__name__}: {execution_time}")
+        return result
+
+    return wrapper
