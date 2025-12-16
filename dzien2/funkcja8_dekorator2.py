@@ -1,4 +1,6 @@
 # zrobić dekorator, który zmienia wynik dziłania funkcji na duże litery
+from functools import wraps
+
 from colorama import Fore, Style, init
 
 
@@ -21,6 +23,7 @@ def bold_decorator(func):
 
 
 def color_decorator(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         return Fore.RED + result + Style.RESET_ALL
@@ -69,3 +72,9 @@ def greetings5(string):
 
 
 print(greetings5("Kolor"))
+
+print(greetings5.__name__)  # wrapper
+# po dodaniu @wraps
+# greetings5
+# '__module__', '__name__', '__qualname__', '__doc__',
+#                        '__annotate__', '__type_params__'
