@@ -112,3 +112,22 @@ def fibo_with_index(n):
     for ind in range(n):
         yield ind, a
         a, b = b, a + b
+
+
+fib = fibo_with_index(10)
+print(next(fib))
+print(next(fib))
+print(next(fib))
+print(next(fib))
+# (0, 0)
+# (1, 1)
+# (2, 1)
+# (3, 2)
+
+for i, n in fibo_with_index(10):
+    print(f"Pozycja: {i}, element: {n}")
+# Pozycja: 0, element: 0
+# Pozycja: 1, element: 1
+# Pozycja: 2, element: 1
+# Pozycja: 3, element: 2
+# Pozycja: 4, element: 3
