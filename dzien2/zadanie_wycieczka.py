@@ -10,3 +10,4 @@
 #
 # Następnie zbuduj listę z różnymi wartościami rabatu
 # i iteracyjnie wyznacz wartości do zapłaty dla stałych kosztów z zmiennego rabatu.
+# dodaj dekorator procent_na_ulamek
