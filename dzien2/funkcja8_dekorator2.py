@@ -1,4 +1,8 @@
 # zrobić dekorator, który zmienia wynik dziłania funkcji na duże litery
+from colorama import Fore, Style, init
+
+
+# pip install colorama
 
 def uppercase_decorator(func):
     def wrapper(*args, **kwargs):
@@ -12,6 +16,14 @@ def bold_decorator(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)  # uruchamiamy funkcję
         return "\033[1m" + result + "\033[0m"
+
+    return wrapper
+
+
+def color_decorator(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return Fore.RED + result + Style.RESET_ALL
 
     return wrapper
 
@@ -40,6 +52,7 @@ def greetings3(string):
 
 print(greetings3("Test"))
 
+
 # kolejność ma znaczenie
 @bold_decorator
 @uppercase_decorator
@@ -48,3 +61,11 @@ def greetings4(string):
 
 
 print(greetings4("Test dwa"))
+
+
+@color_decorator
+def greetings5(string):
+    return f"(color)Podałeś: {string}"
+
+
+print(greetings5("Kolor"))
