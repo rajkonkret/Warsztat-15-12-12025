@@ -101,6 +101,19 @@ def add_lc():
     return "Ok LC"
 
 
+# zip() - łączy kolekcje
+@measure_time
+def add_zip():
+    result = [a + b for a, b in zip(lista1, lista2)]
+    return "OK ZIP"
+
+
+@measure_time
+def add_np():
+    result = array1 + array2  # broadcasting
+    return "OK np"
+
+
 my_time()  # Czas wykonania funkcji: my_time: 2.0008054999634624
 print(add_with_for())
 print(add_lc())
@@ -108,3 +121,9 @@ print(add_lc())
 # OK for
 # Czas wykonania funkcji: add_lc: 1.2044600000372157
 # Ok LC
+print(add_zip())
+# Czas wykonania funkcji: add_zip: 1.069941500085406
+# OK ZIP
+print(add_np())
+# Czas wykonania funkcji: add_np: 0.012089999974705279
+# OK np
