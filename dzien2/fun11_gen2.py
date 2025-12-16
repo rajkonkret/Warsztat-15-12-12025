@@ -1,4 +1,5 @@
 import time
+from itertools import zip_longest
 
 
 def wznowienie(n, k):
@@ -131,3 +132,41 @@ for i, n in fibo_with_index(10):
 # Pozycja: 2, element: 1
 # Pozycja: 3, element: 2
 # Pozycja: 4, element: 3
+
+person = ['Radek', "Tomek", "Zenek", 'Ania', "Kasia"]
+wiek = [34, 56, 57, 89]
+
+for p, w in zip(person, wiek):
+    print(p, w)
+# Radek 34
+# Tomek 56
+# Zenek 57
+# Ania 89
+
+print(20 * "-")
+zipped = zip_longest(person, wiek, fillvalue="Brak danych")
+print(zipped)  # <itertools.zip_longest object at 0x0000029483DC36A0>
+
+lista_zipped = list(zipped)  # wyczerpalismy dane z iteratora
+
+for imie, wiek in zipped:
+    print(imie, wiek)
+# --------------------
+# <itertools.zip_longest object at 0x000001A3120936A0>
+# Radek 34
+# Tomek 56
+# Zenek 57
+# Ania 89
+# Kasia Brak danych
+print(20 * "-")
+for imie, wiek in zipped:
+    print(imie, wiek)
+# -------------------- dane wyczerpane
+for imie, wiek in lista_zipped:
+    print(imie, wiek)
+    # dane z listy
+# Radek 34
+# Tomek 56
+# Zenek 57
+# Ania 89
+# Kasia Brak danych
