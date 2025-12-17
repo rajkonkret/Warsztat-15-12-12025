@@ -20,3 +20,12 @@ transaction_strategy = st.fixed_dictionaries(
 )
 
 transaction_list_strategy = st.lists(transaction_strategy, max_size=50)
+
+
+@given(transaction_list_strategy, transaction_type_strategy)
+def test_filter_tranasctions_keep_only_given_type(transactions, ttype):
+    filtered = filter_transactions(transactions, ttype)
+
+    assert all(tr['type'] == ttype for tr in filtered)
+
+# map_transactions
