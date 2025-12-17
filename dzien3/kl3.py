@@ -52,7 +52,10 @@ class Friend(Suplier):
         self.phone = phone
 
     def __repr__(self):
-        return f"{self.name} {self.email} +48{self.phone}"
+        # return f"{self.name} {self.email} +48{self.phone}"
+        # !r - teksty będą w cudzysłowiu
+        return f"{self.name!r} {self.email!r} +48{self.phone!r}"
+        #  'Marek' 'marek@wp.pl' +48'000000000',
 
 
 c1 = Contact("Radek", "radek@wp.pl")
@@ -131,3 +134,10 @@ pprint(Contact.all_contacts)
 #  Marek marek@wp.pl +48000000000,
 #  Kamil kamil@wp.pl +48000000000,
 #  Aneta aneta@onet.pl +48980987654]
+
+# kolejnośc rozwiązywania nazw metod(pól) dla obiektu
+pprint(Friend.__mro__)
+# (<class '__main__.Friend'>,
+#  <class '__main__.Suplier'>,
+#  <class '__main__.Contact'>,
+#  <class 'object'>)
