@@ -39,6 +39,19 @@ class Suplier(Contact):
         print(f"{order} zamówiono od {self.name}")
 
 
+class Friend(Suplier):
+    """
+    Klasa dziedziczy po klasie Suplier
+    """
+
+    def __init__(self, name, email, phone="000000000"):
+        super().__init__(name, email)  # super() - musimy wywołac metode __init__ z klasy nadrzędnej
+        self.phone = phone
+
+    def __repr__(self):
+        return f"{self.name} {self.email} +48{self.phone}"
+
+
 c1 = Contact("Radek", "radek@wp.pl")
 c2 = Contact("Anna", "anna@wp.pl")
 c3 = Contact("Tomek", "tomek@wp.pl")
@@ -86,5 +99,3 @@ osoba = Contact.all_contact.search("Radek")
 print(osoba)
 print(osoba[0].name)  # Radek
 print(osoba[0].email)  # radek@wp.pl
-
-
