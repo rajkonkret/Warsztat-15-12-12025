@@ -28,4 +28,13 @@ def test_filter_tranasctions_keep_only_given_type(transactions, ttype):
 
     assert all(tr['type'] == ttype for tr in filtered)
 
+
 # map_transactions
+@given(transaction_list_strategy, currency_strategy)
+def test_map_transactions_lenght_matches(transactions, currency):
+    mapped = map_transactions(transactions, currency)
+
+    assert len(mapped) == len(transactions)
+
+# test_hypotesis.py::test_addition_is_comutative PASSED                                                                                                                                                                        [ 50%]
+# test_hypotesis.py::test_absolute_is_non_negative PASSED
