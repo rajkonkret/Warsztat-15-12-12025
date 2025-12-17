@@ -1,5 +1,16 @@
+class ContactList(list['Contact']):
+
+    def search(self, name):
+        matching_contact = []
+        for c in self:  # pod self będzie lista
+            if name.casefold().strip() in c.name.casefold().strip():
+                matching_contact.append(c)
+        return matching_contact
+
+
 class Contact:
-    all_contact = []  # lista wspólna dla wszystkich obiektów klasy
+    # all_contact = []  # lista wspólna dla wszystkich obiektów klasy
+    all_contact = ContactList()  # lista wspólna dla wszystkich obiektów klasy
     x = "Test"
 
     def __init__(self, name, email):
@@ -61,3 +72,19 @@ print(sup1)
 # Anna anna@wp.pl
 # Tomek tomek@wp.pl
 # Kasia kasia@wp.pl
+
+# print(Contact.all_contact.search("Radek"))  # AttributeError: 'list' object has no attribute 'search'
+
+
+contact_list = ContactList()
+print(contact_list)  # []
+print(contact_list.search("Radek"))
+
+print(Contact.all_contact.search("Radek"))  # [Radek radek@wp.pl]
+osoba = Contact.all_contact.search("Radek")
+
+print(osoba)
+print(osoba[0].name)  # Radek
+print(osoba[0].email)  # radek@wp.pl
+
+
