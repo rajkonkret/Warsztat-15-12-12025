@@ -1,3 +1,6 @@
+from pprint import pprint
+
+
 class ContactList(list['Contact']):
 
     def search(self, name):
@@ -10,7 +13,7 @@ class ContactList(list['Contact']):
 
 class Contact:
     # all_contact = []  # lista wspólna dla wszystkich obiektów klasy
-    all_contact = ContactList()  # lista wspólna dla wszystkich obiektów klasy
+    all_contacts = ContactList()  # lista wspólna dla wszystkich obiektów klasy
     x = "Test"
 
     def __init__(self, name, email):
@@ -22,7 +25,7 @@ class Contact:
         self.name = name
         self.email = email
         # dodajemy wszystkie obiekty do listy
-        Contact.all_contact.append(self)
+        Contact.all_contacts.append(self)
 
     # repr, dwa obiekty,
     def __repr__(self):  # __repr__ dopisuje __str__ jesli nie ma
@@ -55,9 +58,9 @@ class Friend(Suplier):
 c1 = Contact("Radek", "radek@wp.pl")
 c2 = Contact("Anna", "anna@wp.pl")
 c3 = Contact("Tomek", "tomek@wp.pl")
-print(c1.all_contact)  # [Radekradek@wp.pl, Annaanna@wp.pl, Tomektomek@wp.pl]
+print(c1.all_contacts)  # [Radekradek@wp.pl, Annaanna@wp.pl, Tomektomek@wp.pl]
 # bez obiektu
-print(Contact.all_contact)  # [Radekradek@wp.pl, Annaanna@wp.pl, Tomektomek@wp.pl]
+print(Contact.all_contacts)  # [Radekradek@wp.pl, Annaanna@wp.pl, Tomektomek@wp.pl]
 print(c1.x)
 print(Contact.x)
 c2.x = "test2"
@@ -70,8 +73,8 @@ print(c2.x)
 print(c1.x)  # Test
 sup1 = Suplier("Kasia", "kasia@wp.pl")
 print(sup1)  # Kasia kasia@wp.pl
-print(sup1.all_contact)
-print(Suplier.all_contact)
+print(sup1.all_contacts)
+print(Suplier.all_contacts)
 # [Radek radek@wp.pl, Anna anna@wp.pl, Tomek tomek@wp.pl, Kasia kasia@wp.pl]
 # [Radek radek@wp.pl, Anna anna@wp.pl, Tomek tomek@wp.pl, Kasia kasia@wp.pl]
 # c1.order()  # AttributeError: 'Contact' object has no attribute 'order'
@@ -93,9 +96,38 @@ contact_list = ContactList()
 print(contact_list)  # []
 print(contact_list.search("Radek"))
 
-print(Contact.all_contact.search("Radek"))  # [Radek radek@wp.pl]
-osoba = Contact.all_contact.search("Radek")
+print(Contact.all_contacts.search("Radek"))  # [Radek radek@wp.pl]
+osoba = Contact.all_contacts.search("Radek")
 
 print(osoba)
 print(osoba[0].name)  # Radek
 print(osoba[0].email)  # radek@wp.pl
+
+f1 = Friend("Marek", "marek@wp.pl")
+f2 = Friend("Kamil", "kamil@wp.pl")
+print(f1, f2)
+# Marek marek@wp.pl +48000000000 Kamil kamil@wp.pl +48000000000
+
+print(Contact.all_contacts)
+# [Radek radek@wp.pl, Anna anna@wp.pl, Tomek tomek@wp.pl, Kasia kasia@wp.pl, Marek marek@wp.pl +48000000000, Kamil kamil@wp.pl +48000000000]
+
+print(Contact.all_contacts.search("Kamil"))  # [Kamil kamil@wp.pl +48000000000]
+
+f3 = Friend("Aneta", "aneta@onet.pl", "980987654")
+print(f3)  # Aneta aneta@onet.pl +48980987654
+
+print(Contact.all_contacts)
+# [Radek radek@wp.pl, Anna anna@wp.pl,
+# Tomek tomek@wp.pl, Kasia kasia@wp.pl,
+# Marek marek@wp.pl +48000000000,
+# Kamil kamil@wp.pl +48000000000,
+# Aneta aneta@onet.pl +48980987654]
+
+pprint(Contact.all_contacts)
+# [Radek radek@wp.pl,
+#  Anna anna@wp.pl,
+#  Tomek tomek@wp.pl,
+#  Kasia kasia@wp.pl,
+#  Marek marek@wp.pl +48000000000,
+#  Kamil kamil@wp.pl +48000000000,
+#  Aneta aneta@onet.pl +48980987654]
