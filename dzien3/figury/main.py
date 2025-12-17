@@ -1,4 +1,5 @@
 # prostokąt, trapez, koło, kwadrat, trójkąt
+from dzien3.figury.kolo import Kolo
 from prostokat import Prostokat
 from kwadrat import Kwadrat
 
@@ -20,3 +21,9 @@ print(type(pr2))
 # --------------------------------------------------
 # Pole figury Kwadrat: 25
 # <class 'dzien3.figury.kwadrat.Kwadrat'>
+
+print(50 * "-")
+kolo = Kolo(6)
+print(f"Pole figury {kolo.__class__.__name__}: {kolo.policz_pole()} ")
+# --------------------------------------------------
+# Pole figury Kolo: 113.09733552923255
