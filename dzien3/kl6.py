@@ -91,4 +91,27 @@ g.method()
 # Metoda z kalsy B
 
 print(G.__mro__)
+
+
 # (<class '__main__.G'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
+
+# problem dziedziczenia po wielu klasach
+# kolejnośc dziedziczenia ma znaczenie
+# class H(A, F):
+#     def method(self):
+#         super().method()
+#         print("Dopisane")
+#         B.method(self)
+#
+#
+# print(H.__mro__)
+# TypeError: Cannot create a consistent method resolution order (MRO) for bases A, F
+
+class H(F, A):
+    def method(self):
+        super().method()
+        print("Dopisane")
+        B.method(self)
+
+print(H.__mro__)
+# (<class '__main__.H'>, <class '__main__.F'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
