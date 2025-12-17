@@ -64,26 +64,24 @@ while True:
         odp = input("Wybierz opcję")  # str
 
         if odp == "1":
-            name = input("Podaj imię kontaktu:")
-            number = input("Podaj numer telefonu kontaktu(tylko cyfry):")
-            if not number.isdigit():
-                raise ValueError("Numer telefonu powinien zawierac cyfry")
-            else:
-                contacts[name.lower()] = number
-                print("Kontakt został dodany")
+            author = input("Podaj autora:")
+            title = input("Podaj tytuł:")
+            isbn = input("Podaj isbn:")
+            library.fun_dodaj_ksiazki(Book(title, author, isbn))
         elif odp == "2":
-            name = input("Podaj imię kontaktu do usunięcia")
-            if name.lower() in contacts:
-                # del contacts[name.lower()]
-                contacts.pop(name.lower())
-                print(f"Kontakt {name} został usunięty")
+            isbn = input("Podaj isbn:")
+            book = library.fun_wypozycz_ksiazke(isbn)
+            print(f"Ksiązka została wypożyczona: {book}")
         elif odp == "3":
-            name = input("Podaj imię kontaktu do wyszukania")
-            if name.lower() in contacts:
-                print(f"Kontakt {name.capitalize()} nr telefonu: {contacts[name.lower()]}")
+            print(f"Dostępne ksiązki: {library.fun_dostepne_ksiazki()}")
         elif odp == "4":
-            print(f"Lista kontaktów: {contacts}")
+            print(f"Wypożyczone ksiązki: {library.fun_wypozyczone_ksiazki()}")
         elif odp == "5":
+            isbn = input("Podaj isbn ksiązki, którą chcesz zwrócic:")
+            book = library.fun_zwroc_ksiazke(isbn)
+            if book:
+                print(f"Ksiązka została zwrócona: {book}")
+        elif odp == "6":
             break
         else:
             print("Błędny wybór")
