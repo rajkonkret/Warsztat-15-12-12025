@@ -9,6 +9,7 @@
 # print(p1)  # <__main__.Person object at 0x000001E5C03B8830>
 # # __str__, __repr__
 
+import pickle
 from dataclasses import dataclass
 
 """Add dunder methods based on the fields defined in the class.
@@ -42,3 +43,12 @@ p3 = Person("Maciek", "Arbuz", 2)
 # Person(first_name='Jan', last_name='Kowalski', id=1)
 p2.greets()
 p3.greets()
+# My name is: Jan
+# My name is: Maciek
+
+people = [p2, p3]
+
+# pickle - serializacja i deserializacja obiektów
+# wb - wymagania biblioteki pickle
+with open('dane.pckl', "wb") as f:
+    pickle.dump(people, f)
