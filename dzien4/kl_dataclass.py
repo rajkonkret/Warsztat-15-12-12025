@@ -37,18 +37,19 @@ class Person:
         print("My name is:", self.first_name)
 
 
-p2 = Person("Jan", "Kowalski", 1)
-print(p2)  # Person(first_name='Jan', last_name='Kowalski', id=1)
-p3 = Person("Maciek", "Arbuz", 2)
-# Person(first_name='Jan', last_name='Kowalski', id=1)
-p2.greets()
-p3.greets()
-# My name is: Jan
-# My name is: Maciek
+if __name__ == '__main__':
+    p2 = Person("Jan", "Kowalski", 1)
+    print(p2)  # Person(first_name='Jan', last_name='Kowalski', id=1)
+    p3 = Person("Maciek", "Arbuz", 2)
+    # Person(first_name='Jan', last_name='Kowalski', id=1)
+    p2.greets()
+    p3.greets()
+    # My name is: Jan
+    # My name is: Maciek
 
-people = [p2, p3]
+    people = [p2, p3]
 
-# pickle - serializacja i deserializacja obiektów
-# wb - wymagania biblioteki pickle
-with open('dane.pckl', "wb") as f:
-    pickle.dump(people, f)
+    # pickle - serializacja i deserializacja obiektów
+    # wb - wymagania biblioteki pickle
+    with open('dane.pckl', "wb") as f:
+        pickle.dump(people, f)
