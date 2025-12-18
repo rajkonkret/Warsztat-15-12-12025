@@ -1,0 +1,12 @@
+<ExchangeRatesSeries xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Table>A</Table>
+    <Currency>dolar amerykański</Currency>
+    <Code>USD</Code>
+    <Rates>
+        <Rate>
+            <No>245/A/NBP/2025</No>
+            <EffectiveDate>2025-12-18</EffectiveDate>
+            <Mid>3.5893</Mid>
+        </Rate>
+    </Rates>
+</ExchangeRatesSeries>
