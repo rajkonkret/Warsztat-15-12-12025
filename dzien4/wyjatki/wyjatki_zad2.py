@@ -12,3 +12,8 @@ class MyValueError(MyError):
 class MyTypeError(MyError):
     def __init__(self, message):
         super().__init__(message, err_code=200)
+
+# zrobić funkcja, która wykonuje dzielenie x/y
+# gdy x lub y nie jest int -> MyTyPeError
+# gdy y =0 -> MyValueError
+
