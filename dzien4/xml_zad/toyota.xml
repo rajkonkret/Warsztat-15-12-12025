@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<autokomis>
+	<samochod>
+		<id>sam1</id>
+		<marka>Toyota</marka>
+		<rok>2025</rok>
+		<cena>56000</cena>
+	</samochod>
+</autokomis>

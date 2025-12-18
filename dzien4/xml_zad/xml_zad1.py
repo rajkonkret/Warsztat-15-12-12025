@@ -40,3 +40,5 @@ with open("toyota.xml", "w", encoding="utf-8") as f:
     # 		<cena>56000</cena>
     # 	</samochod>
     # </autokomis>
+
+# xml.sax - przetwarzanie eventowe
