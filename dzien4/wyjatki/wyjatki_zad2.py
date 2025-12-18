@@ -13,7 +13,25 @@ class MyTypeError(MyError):
     def __init__(self, message):
         super().__init__(message, err_code=200)
 
+
 # zrobić funkcja, która wykonuje dzielenie x/y
 # gdy x lub y nie jest int -> MyTyPeError
 # gdy y =0 -> MyValueError
 
+def my_function(x: int, y: int) -> float:
+    if not isinstance(x, int):
+        raise MyTypeError("X must be integer")
+
+    if not isinstance(y, int):
+        raise MyTypeError("Y must be integer")
+
+    if y == 0:
+        raise MyValueError("Y cannot be zero")
+
+    return x / y
+
+
+print(my_function(4, 90))  # 0.044444444444444446
+# print(my_function(3, 5.9)) # MyTypeError: Y must be integer
+# print(my_function(3.9, 5))  # MyTypeError: X must be integer
+print(my_function(6 / 0))  # ZeroDivisionError: division by zero
