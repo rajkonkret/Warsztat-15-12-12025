@@ -14,3 +14,17 @@ print(response)  # <Response [200]>
 # 4xx - bład po stronie klienta, 404 Page Not Found, 400 Bad Request
 # 5xx - błedy po stronie serwera
 # https://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP
+
+print(response.text)
+print(type(response.text)) # str
+
+response_data = response.json()
+print(type(response_data)) # <class 'dict'>
+
+for i in response_data:
+    print(i)
+# people
+# number
+# message
+
+print(response_data['people'])
