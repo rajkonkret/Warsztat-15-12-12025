@@ -37,3 +37,23 @@ class Count:
         else:
             self.current += 1
             return self.current - 1
+
+
+print(50 * "-")
+counter = Count(1, 5)
+print(next(counter))
+print(next(counter))
+print(next(counter))
+print(next(counter))
+print(next(counter))
+# --------------------------------------------------
+# 1
+# 2
+# 3
+# 4
+# 5
+try:
+    print(next(counter))  # StopIteration
+except StopIteration as e:
+    print("Koniec danych", e)
+    # Koniec danych
